@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		831FABA7271DD7760082670D /* CustomCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FABA6271DD7760082670D /* CustomCompositionalLayout.swift */; };
 		838C822E271DBD9300622CC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C822D271DBD9300622CC8 /* AppDelegate.swift */; };
 		838C8230271DBD9300622CC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C822F271DBD9300622CC8 /* SceneDelegate.swift */; };
 		838C8232271DBD9300622CC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C8231271DBD9300622CC8 /* ViewController.swift */; };
@@ -17,10 +18,10 @@
 		838C8247271DC3C200622CC8 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C8246271DC3C200622CC8 /* CustomCollectionViewCell.swift */; };
 		838C824A271DC6D800622CC8 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C8249271DC6D800622CC8 /* APIHandler.swift */; };
 		838C824C271DC77C00622CC8 /* ImageJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C824B271DC77C00622CC8 /* ImageJSON.swift */; };
-		838C824F271DD19200622CC8 /* CollectionViewFlowLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838C824E271DD19200622CC8 /* CollectionViewFlowLayout+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		831FABA6271DD7760082670D /* CustomCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCompositionalLayout.swift; sourceTree = "<group>"; };
 		838C822A271DBD9300622CC8 /* Week4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Week4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		838C822D271DBD9300622CC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		838C822F271DBD9300622CC8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		838C8246271DC3C200622CC8 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		838C8249271DC6D800622CC8 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		838C824B271DC77C00622CC8 /* ImageJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageJSON.swift; sourceTree = "<group>"; };
-		838C824E271DD19200622CC8 /* CollectionViewFlowLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewFlowLayout+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 		838C8221271DBD9300622CC8 = {
 			isa = PBXGroup;
 			children = (
-				838C824D271DD17E00622CC8 /* Extensions */,
+				838C824D271DD17E00622CC8 /* Utils */,
 				838C8248271DC6CA00622CC8 /* APIOperations */,
 				838C8241271DC1DF00622CC8 /* Components */,
 				838C822C271DBD9300622CC8 /* Week4 */,
@@ -114,12 +114,12 @@
 			path = APIOperations;
 			sourceTree = "<group>";
 		};
-		838C824D271DD17E00622CC8 /* Extensions */ = {
+		838C824D271DD17E00622CC8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				838C824E271DD19200622CC8 /* CollectionViewFlowLayout+Extension.swift */,
+				831FABA6271DD7760082670D /* CustomCompositionalLayout.swift */,
 			);
-			path = Extensions;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,9 +193,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				838C824F271DD19200622CC8 /* CollectionViewFlowLayout+Extension.swift in Sources */,
 				838C824C271DC77C00622CC8 /* ImageJSON.swift in Sources */,
 				838C8232271DBD9300622CC8 /* ViewController.swift in Sources */,
+				831FABA7271DD7760082670D /* CustomCompositionalLayout.swift in Sources */,
 				838C8247271DC3C200622CC8 /* CustomCollectionViewCell.swift in Sources */,
 				838C822E271DBD9300622CC8 /* AppDelegate.swift in Sources */,
 				838C824A271DC6D800622CC8 /* APIHandler.swift in Sources */,

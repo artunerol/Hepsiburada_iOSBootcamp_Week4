@@ -9,9 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private lazy var collectionView = CollectionView(frame: view.bounds, collectionViewLayout: CustomCompositionalLayout
-                                                        .customLayout())
-
+    private lazy var collectionView = CollectionView(frame: view.bounds, collectionViewLayout: CustomCompositionalLayout.customLayout())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

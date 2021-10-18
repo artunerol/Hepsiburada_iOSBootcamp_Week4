@@ -53,4 +53,15 @@ class CustomCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    public func configure(photoURLString: String) {
+        guard let url = URL(string: photoURLString) else { return }
+        do {
+            let data = try Data(contentsOf: url)
+            imageView.image = UIImage(data: data)
+        }
+        catch {
+            
+        }
+    }
+    
 }

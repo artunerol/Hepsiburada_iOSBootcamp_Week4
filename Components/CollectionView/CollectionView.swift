@@ -19,7 +19,6 @@ class CollectionView: UICollectionView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.registerCells()
             self.setUPInit()
-
         }
     }
     
@@ -31,7 +30,7 @@ class CollectionView: UICollectionView {
     //MARK: - Private Funcs
     private func setUPInit() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .red
+        backgroundColor = .cyan
         self.delegate = self
         self.dataSource = self
     }
@@ -58,7 +57,7 @@ extension CollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
         cell.label.text = jsonData[indexPath.row].author
-        
+        cell.configure(photoURLString: jsonData[indexPath.row].download_url)
         
         return cell
     }
