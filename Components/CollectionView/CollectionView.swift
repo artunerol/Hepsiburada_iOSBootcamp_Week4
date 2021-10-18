@@ -11,10 +11,16 @@ class CollectionView: UICollectionView {
     
     //MARK: - LifeCycle
     
+    private lazy var jsonData = [ImageJSON]()
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        setUPInit()
         getData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.registerCells()
+            self.setUPInit()
+
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -26,8 +32,8 @@ class CollectionView: UICollectionView {
     private func setUPInit() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .red
-        //        delegate = self
-        //        dataSource = self
+        self.delegate = self
+        self.dataSource = self
     }
     
     private func registerCells() {
@@ -35,23 +41,26 @@ class CollectionView: UICollectionView {
     }
     
     private func getData() {
-        APIHandler.shared.getDataFromURL { dataasdasd in
-            print("asdasdasd is \(dataasdasd)")
+        APIHandler.shared.getDataFromURL { fetchedJSON in
+            self.jsonData = fetchedJSON
         }
     }
 }
 
-////MARK: - Extensions
-//
-//extension CollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//    }
+//MARK: - Extensions
 
-
-//}
+extension CollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
+        cell.label.text = jsonData[indexPath.row].author
+        
+        
+        return cell
+    }
+    
+}
