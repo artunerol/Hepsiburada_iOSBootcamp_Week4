@@ -8,6 +8,6 @@
 import Foundation
 
 struct ImageJSON: Codable {
-    let id: String
+    let author: String
     let download_url: String
 }

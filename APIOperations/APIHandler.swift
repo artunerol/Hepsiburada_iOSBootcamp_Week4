@@ -9,24 +9,30 @@ import UIKit
 
 class APIHandler {
     
+    typealias jsonBlock = ([ImageJSON]) -> Void
+    
     private let decoder = JSONDecoder()
+    
+    public lazy var data = [ImageJSON]()
     
     public static let shared = APIHandler()
     
     //MARK: -
     
-    private func decodeJSON(from data: Data) {
+    private func decodeJSON(from data: Data) -> [ImageJSON] {
         do {
-            try decoder.decode([ImageJSON].self, from: data)
+            let decodedData = try decoder.decode([ImageJSON].self, from: data)
+            return decodedData
         }
         catch {
             
         }
+        return [ImageJSON]()
     }
     
     //MARK: -
     
-    public func getDataFromURL() {
+    public func getDataFromURL(completion: @escaping jsonBlock) {
         
         guard let stringToURL = URL(string: "https://picsum.photos/v2/list") else { return } // Creating URL FRom string.
         let urlSession = URLSession(configuration: .default) // Creating URLSession
@@ -34,8 +40,8 @@ class APIHandler {
             
             if error == nil {
                 guard let unwrappedData = data else { return }
-                self.decodeJSON(from: unwrappedData)
-                print(unwrappedData)
+                let decodedData = self.decodeJSON(from: unwrappedData)
+                completion(decodedData)
             }
             else {
                 print("Error in getting data from URL")
